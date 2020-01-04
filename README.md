@@ -192,6 +192,7 @@ Everyone is welcome to be involved by creating or improving functionality. If yo
 
 ## Contributors
 [Jerry Clark](https://github.com/geraldclark)
+[Upsert, LLC](https://github.com/UpsertLLC)
 
 # Licensed under Apache
 © 2017 SugarCRM Inc.  Licensed by SugarCRM under the Apache 2.0 license.
