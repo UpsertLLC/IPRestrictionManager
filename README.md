@@ -7,8 +7,11 @@ This is the Users Guide for the IP Restriction Manager plugin version 2.x.
 The IP Restriction Manager plugin allows a Sugar Administrator to setup restrictive IP ranges for authentication. These ranges can be specific to a user, team, role or combination of all three. IP ranges can be specified in the following formats: specific, wildcard, CIDR and Start-End
 
 # Release Notes
+* 2.4
+    * Support for Sugar 9.0, 9.1, 9.2
+    * Update getIpAddress to check additional $_SERVER vars
 * 2.3
-    * Support for SugarCRM v7.11 and v8
+    * Support for Sugar 7.11 and 8
 * 2.2
     * Added Unit Tests
 * 2.1
@@ -25,6 +28,7 @@ Requirements for installation
 * 7.9.x
 * 7.11.x
 * 8.x
+* 9.x
 
 ## Supported Editions
 * Professional
