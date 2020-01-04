@@ -5,7 +5,10 @@ $manifest = array(
         'regex_matches' => array(
             '^7.9\\..+',
             '^7.11\\..+',
-            '^8.0\\..+'
+            '^8.0\\..+',
+            '^9.0\\..+',
+            '^9.1\\..+',
+            '^9.2\\..+',
         )
     ),
     'acceptable_sugar_flavors' => array(
@@ -22,7 +25,7 @@ $manifest = array(
     'name' => 'IP Restriction Manager',
     'published_date' => '2017-05-04 12:00:00',
     'type' => 'module',
-    'version' => '2.2',
+    'version' => '2.3',
     'remove_tables' => 'prompt'
 );
 
