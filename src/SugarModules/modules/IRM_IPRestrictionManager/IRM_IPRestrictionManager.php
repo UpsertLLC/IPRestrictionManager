@@ -68,22 +68,33 @@ class IRM_IPRestrictionManager extends IRM_IPRestrictionManager_sugar
      *
      * @return string
      */
+    /**
+     * Fetches the current users ip address.
+     *
+     * @return string
+     */
     public function getIpAddress()
     {
         $ip = '';
 
-        if (isset($_SERVER['HTTP_CLIENT_IP']) && !empty($_SERVER['HTTP_CLIENT_IP'])) {
-            $ip = $_SERVER['HTTP_CLIENT_IP'];
-        } else if (isset($_SERVER['HTTP_X_FORWARDED_FOR']) && !empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-        } else if (isset($_SERVER['HTTP_X_FORWARDED']) && !empty($_SERVER['HTTP_X_FORWARDED'])) {
-            $ip = $_SERVER['HTTP_X_FORWARDED'];
-        } else if (isset($_SERVER['HTTP_FORWARDED_FOR']) && !empty($_SERVER['HTTP_FORWARDED_FOR'])) {
-            $ip = $_SERVER['HTTP_FORWARDED_FOR'];
-        } else if (isset($_SERVER['HTTP_FORWARDED']) && !empty($_SERVER['HTTP_FORWARDED'])) {
-            $ip = $_SERVER['HTTP_FORWARDED'];
-        } else if (isset($_SERVER['REMOTE_ADDR']) && !empty($_SERVER['REMOTE_ADDR'])) {
-            $ip = $_SERVER['REMOTE_ADDR'];
+        $headerKeys = array(
+            'HTTP_CLIENT_IP',
+            'HTTP_X_FORWARDED_FOR',
+            'HTTP_X_FORWARDED',
+            'HTTP_FORWARDED_FOR',
+            'HTTP_FORWARDED',
+            'REMOTE_ADDR',
+        );
+
+        foreach ($headerKeys as $headerKey) {
+            $replacedKey = str_replace('_', '-', ltrim($headerKey, 'HTTP_'));
+            if (isset($_SERVER[$headerKey]) && !empty($_SERVER[$headerKey])) {
+                $ip = $_SERVER[$headerKey];
+                break;
+            } elseif (isset($_SERVER[$replacedKey]) && !empty($_SERVER[$replacedKey])) {
+                $ip = $_SERVER[$replacedKey];
+                break;
+            }
         }
 
         return $ip;
