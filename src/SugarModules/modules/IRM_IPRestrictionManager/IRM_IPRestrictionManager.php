@@ -68,11 +68,6 @@ class IRM_IPRestrictionManager extends IRM_IPRestrictionManager_sugar
      *
      * @return string
      */
-    /**
-     * Fetches the current users ip address.
-     *
-     * @return string
-     */
     public function getIpAddress()
     {
         $ip = '';
