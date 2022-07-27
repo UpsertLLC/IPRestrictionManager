@@ -16,6 +16,7 @@ This project exists thanks to all the people who [contribute](https://github.com
 * [Chris Raffle](https://gitlab.com/craffle)
 * [Kaitlin Tomkosky](https://gitlab.com/ktomkosk)
 * [Jerry Clark](https://github.com/geraldclark)
+* [Tevfik Tümer](https://github.com/tevfik6)
 * [Upsert, LLC](https://github.com/UpsertLLC)
 
 # Licensed under Apache
