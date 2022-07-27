@@ -1,0 +1,64 @@
+{{!--
+/*
+ * IP Restriction Manager is an open source module developed by SugarCRM, Inc
+ * Copyright (C) SugarCRM, Inc.
+ *
+ * "Upsert® IP Restriction Manager" is an extension to "IP Restriction Manager" developed by Upsert, LLC.
+ * Copyright (C) Upsert, LLC.
+ * 
+ * Project: https://github.com/upsertllc/IPRestrictionManager
+ * Support: https://github.com/UpsertLLC/IPRestrictionManager/issues
+ * 
+ * Licensed by SugarCRM, Inc under the Apache 2.0 license.
+ */
+--}}
+<style>
+    #list{
+        margin-left: 0px;
+    }
+</style>
+
+<div id="container" class="upsert-ip-restriction-mamanger-third-party-software-field">        
+        <table class="table table-striped table-bordered table-condensed">
+            <thead>
+                <tr>
+                    <th>
+                        {{str 'LBL_UPSERT_IPRESTRICTIONMANAGER_ABOUT_THIRD_PARTY_SOFTWARE_LIBRARY'}}
+                    </th>
+                    <th>
+                        {{str 'LBL_UPSERT_IPRESTRICTIONMANAGER_ABOUT_THIRD_PARTY_SOFTWARE_VERSION'}}
+                    </th>
+                    <th>
+                        {{str 'LBL_UPSERT_IPRESTRICTIONMANAGER_ABOUT_THIRD_PARTY_SOFTWARE_DESCRIPTION'}}
+                    </th>
+                    <td>
+                        {{str 'LBL_UPSERT_IPRESTRICTIONMANAGER_ABOUT_THIRD_PARTY_SOFTWARE_PROJECT_PAGE'}}
+                    </td>
+                    <td>
+                        {{str 'LBL_UPSERT_IPRESTRICTIONMANAGER_ABOUT_THIRD_PARTY_SOFTWARE_LICENSE'}}
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each value}}
+                    <tr>
+                        <td>
+                            <a href="{{website}}" target="_blank">{{library}}</a>
+                        </td>
+                        <td>
+                            {{version}}
+                        </td>
+                        <td>
+                            {{description}}
+                        </td>
+                        <td>
+                            <a href="{{project_page}}" target="_blank">{{project_page}}</a>
+                        </td>
+                        <td>
+                            <a href="{{license_link}}" target="_blank">{{license}}</a>
+                        </td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+</div>

@@ -9,3 +9,4 @@
 .travis/*.tar.gz
 .travis/*.enc
 .DS_Store
+.php-cs-fixer.cache

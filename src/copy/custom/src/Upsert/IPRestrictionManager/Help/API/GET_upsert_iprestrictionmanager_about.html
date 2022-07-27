@@ -1,0 +1,101 @@
+<h2 xmlns="http://www.w3.org/1999/html">Overview</h2>
+<span class="lead">
+    Returns information about the IP Restriction Manager plugin.
+</span>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                id
+            </td>
+            <td>
+                The unique plugin identfier.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                name
+            </td>
+            <td>
+                The name of the plugin.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                version
+            </td>
+            <td>
+                The plugin version.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                project_url
+            </td>
+            <td>
+                The project url.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                support_url
+            </td>
+            <td>
+                The support issue url.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                key
+            </td>
+            <td>
+                Plugin identifier
+            </td>
+        </tr>
+        <tr>
+            <td>
+                third_party_software
+            </td>
+            <td>
+                List of third party libraries
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Example Response</h3>
+<pre class="pre-scrollable">
+{
+    "id":"fd5da2d0-01eb-11ed-af0b-06687781ce3b",
+    "name":"Upsert\u00ae IP Restriction Manager For SugarCRM",
+    "version":"1.0.0",
+    "project_url":"https:\/\/github.com\/UpsertLLC\/IPRestrictionManager",
+    "support_url":"https:\/\/github.com\/UpsertLLC\/IPRestrictionManager\/issues",
+    "key":"upsert_IPRestrictionManager",
+    "third_party_software":[]
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Plugin Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            1.0.0
+        </td>
+        <td>
+            Added v10+ <code>/&lt;upsert_IPRestrictionManager&gt;/about</code> GET endpoint.
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,64 @@
+<h2 xmlns="http://www.w3.org/1999/html">Overview</h2>
+<span class="lead">
+    Returns list of platforms.
+</span>
+
+<h2>Request Arguments</h2>
+<span class="lead">
+    This endpoint does not accept any request arguments.
+</span>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            &lt;list values>
+        </td>
+        <td>
+            Array
+        </td>
+        <td>
+            <p>Returns the enum values for the platforms field</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+    {
+        "base": "base",
+        "mobile": "mobile",
+        "portal": "portal",
+        "opi": "opi",
+        "lpi": "lpi",
+        "collabspot": "collabspot",
+        "collabspotbackend": "collabspotbackend",
+        "discover": "discover",
+        "dms": "dms"
+    }
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Plugin Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            1.0.0
+        </td>
+        <td>
+            Added v10+ <code>/&lt;upsert_IPRestrictionManager&gt;/enum/platforms</code> GET endpoint.
+        </td>
+    </tr>
+</table>
