@@ -2,7 +2,7 @@
 
 The Upsert® IP Restriction Manager plugin allows a Sugar administrator to setup restrictive ip ranges for authentication. These ranges can be specific to a user, team, role or combination of all three. IP ranges can be specified in the following formats: specific, wildcard, CIDR and Start-End
 
-For building the plugin and usage, please refer to the [wiki[(wiki)].
+For building the plugin and usage, please refer to the [wiki](wiki)].
 
 # Contributing
 Everyone is welcome to be involved by creating or improving functionality. If you would like to contribute, please make sure to review the [contribution terms](CONTRIBUTOR_TERMS.pdf). When you update this [README](README.md), please check out the [contribution guidelines](CONTRIBUTING.md) for helpful hints and tips that will make it easier to accept your pull request.
