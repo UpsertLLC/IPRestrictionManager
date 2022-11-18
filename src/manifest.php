@@ -18,11 +18,11 @@ $manifest = [
     'is_uninstallable' => true,
     'key' => 'UpsertIPRestrictionManager',
     'name' => 'Upsert® IP Restriction Manager For SugarCRM',
-    'published_date' => '2022-07-27',
+    'published_date' => '2022-11-18',
     'remove_tables' => 'prompt',
     'type' => 'module',
     'uninstall_before_upgrade' => false,
-    'version' => '3.0.0',
+    'version' => '3.0.1',
 ];
 
 $installdefs = [
@@ -102,34 +102,6 @@ $installdefs = [
             'from' => '<basepath>/copy/custom/src/Upsert/IPRestrictionManager/Settings.php',
             'to' => 'custom/src/Upsert/IPRestrictionManager/Settings.php',
         ],
-        // [
-        //     'from' => '<basepath>/copy/custom/tests/Functional/Upsert/IPRestrictionManager/Classes/IpUtilsTest.php',
-        //     'to' => 'custom/tests/Functional/Upsert/IPRestrictionManager/Classes/IpUtilsTest.php',
-        // ],
-        // [
-        //     'from' => '<basepath>/copy/custom/tests/Functional/Upsert/IPRestrictionManager/Modules/upsert_IPRestrictions/upsert_IPRestrictionsTest.php',
-        //     'to' => 'custom/tests/Functional/Upsert/IPRestrictionManager/Modules/upsert_IPRestrictions/upsert_IPRestrictionsTest.php',
-        // ],
-        // [
-        //     'from' => '<basepath>/copy/custom/tests/Functional/Upsert/IPRestrictionManager/Utilities/SugarTestSupportACLRolesUtilities.php',
-        //     'to' => 'custom/tests/Functional/Upsert/IPRestrictionManager/Utilities/SugarTestSupportACLRolesUtilities.php',
-        // ],
-        // [
-        //     'from' => '<basepath>/copy/custom/tests/Functional/Upsert/IPRestrictionManager/Utilities/SugarTestSupportTeamsUtilities.php',
-        //     'to' => 'custom/tests/Functional/Upsert/IPRestrictionManager/Utilities/SugarTestSupportTeamsUtilities.php',
-        // ],
-        // [
-        //     'from' => '<basepath>/copy/custom/tests/Functional/Upsert/IPRestrictionManager/Utilities/SugarTestSupportUpsertIPRestrictionsUtilities.php',
-        //     'to' => 'custom/tests/Functional/Upsert/IPRestrictionManager/Utilities/SugarTestSupportUpsertIPRestrictionsUtilities.php',
-        // ],
-        // [
-        //     'from' => '<basepath>/copy/custom/tests/Functional/Upsert/IPRestrictionManager/Utilities/SugarTestSupportUserUtilities.php',
-        //     'to' => 'custom/tests/Functional/Upsert/IPRestrictionManager/Utilities/SugarTestSupportUserUtilities.php',
-        // ],
-        // [
-        //     'from' => '<basepath>/copy/custom/tests/Functional/Upsert/IPRestrictionManager/Utilities/SugarTestSupportUtilities.php',
-        //     'to' => 'custom/tests/Functional/Upsert/IPRestrictionManager/Utilities/SugarTestSupportUtilities.php',
-        // ],
         [
             'from' => '<basepath>/copy/modules/upsert_IPRestrictionLogs/clients/base/filters/basic/basic.php',
             'to' => 'modules/upsert_IPRestrictionLogs/clients/base/filters/basic/basic.php',
@@ -744,6 +716,9 @@ $installdefs = [
             'from' => '<basepath>/layoutdefs/Users/upsert_iprestrictions_users_Users.php',
             'to_module' => 'Users',
         ],
+    ],
+    'post_execute' => [
+        '<basepath>/post_execute/00_QRAR.php',
     ],
     'pre_execute' => [
         '<basepath>/pre_execute/0_CHECK.php',
