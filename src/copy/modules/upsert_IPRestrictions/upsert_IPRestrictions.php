@@ -62,7 +62,17 @@ class upsert_IPRestrictions extends Basic
         }
         return false;
     }
-    
+
+    /**
+     * Determines if we are running from within a unit test
+     *
+     * @return boolean
+     */
+    public static function isUnitTest()
+    {
+        return (PHP_SAPI == 'cli' && strpos($_SERVER['argv'][0], 'phpunit') !== false);
+    }
+
     /**
      * Returns a cache key
      *
@@ -178,7 +188,9 @@ class upsert_IPRestrictions extends Basic
         $isValidated = true;
 
         $status = Settings::fetchConfig('status');
-        if ($status != 'Enabled') {
+
+        //ignore the status if running in unit tests
+        if ( ! static::isUnitTest() && $status != 'Enabled') {
             return $isValidated;
         }
 

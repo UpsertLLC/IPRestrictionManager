@@ -103,6 +103,34 @@ $installdefs = [
             'to' => 'custom/src/Upsert/IPRestrictionManager/Settings.php',
         ],
         [
+            'from' => '<basepath>/copy/custom/tests/Functional/Upsert/IPRestrictionManager/Classes/IpUtilsTest.php',
+            'to' => 'custom/tests/Functional/Upsert/IPRestrictionManager/Classes/IpUtilsTest.php',
+        ],
+        [
+            'from' => '<basepath>/copy/custom/tests/Functional/Upsert/IPRestrictionManager/Modules/upsert_IPRestrictions/upsert_IPRestrictionsTest.php',
+            'to' => 'custom/tests/Functional/Upsert/IPRestrictionManager/Modules/upsert_IPRestrictions/upsert_IPRestrictionsTest.php',
+        ],
+        [
+            'from' => '<basepath>/copy/custom/tests/Functional/Upsert/IPRestrictionManager/Utilities/SugarTestSupportACLRolesUtilities.php',
+            'to' => 'custom/tests/Functional/Upsert/IPRestrictionManager/Utilities/SugarTestSupportACLRolesUtilities.php',
+        ],
+        [
+            'from' => '<basepath>/copy/custom/tests/Functional/Upsert/IPRestrictionManager/Utilities/SugarTestSupportTeamsUtilities.php',
+            'to' => 'custom/tests/Functional/Upsert/IPRestrictionManager/Utilities/SugarTestSupportTeamsUtilities.php',
+        ],
+        [
+            'from' => '<basepath>/copy/custom/tests/Functional/Upsert/IPRestrictionManager/Utilities/SugarTestSupportUpsertIPRestrictionsUtilities.php',
+            'to' => 'custom/tests/Functional/Upsert/IPRestrictionManager/Utilities/SugarTestSupportUpsertIPRestrictionsUtilities.php',
+        ],
+        [
+            'from' => '<basepath>/copy/custom/tests/Functional/Upsert/IPRestrictionManager/Utilities/SugarTestSupportUserUtilities.php',
+            'to' => 'custom/tests/Functional/Upsert/IPRestrictionManager/Utilities/SugarTestSupportUserUtilities.php',
+        ],
+        [
+            'from' => '<basepath>/copy/custom/tests/Functional/Upsert/IPRestrictionManager/Utilities/SugarTestSupportUtilities.php',
+            'to' => 'custom/tests/Functional/Upsert/IPRestrictionManager/Utilities/SugarTestSupportUtilities.php',
+        ],
+        [
             'from' => '<basepath>/copy/modules/upsert_IPRestrictionLogs/clients/base/filters/basic/basic.php',
             'to' => 'modules/upsert_IPRestrictionLogs/clients/base/filters/basic/basic.php',
         ],
