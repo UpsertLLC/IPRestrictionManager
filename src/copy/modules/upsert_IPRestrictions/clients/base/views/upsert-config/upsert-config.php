@@ -50,7 +50,7 @@ $viewdefs['upsert_IPRestrictions'] = [
                         'fields' => [
                             [
                                 'name' => 'header',
-                                'type' => 'varchar',
+                                'type' => 'text',
                                 'default' => 'Settings',
                                 'dismiss_label' => true,
                                 'readonly' => true,

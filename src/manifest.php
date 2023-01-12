@@ -18,11 +18,11 @@ $manifest = [
     'is_uninstallable' => true,
     'key' => 'UpsertIPRestrictionManager',
     'name' => 'Upsert® IP Restriction Manager For SugarCRM',
-    'published_date' => '2022-11-18',
+    'published_date' => '2023-01-12',
     'remove_tables' => 'prompt',
     'type' => 'module',
     'uninstall_before_upgrade' => false,
-    'version' => '3.0.1',
+    'version' => '3.0.2',
 ];
 
 $installdefs = [
@@ -721,7 +721,7 @@ $installdefs = [
         '<basepath>/post_execute/00_QRAR.php',
     ],
     'pre_execute' => [
-        '<basepath>/pre_execute/0_CHECK.php',
+        '<basepath>/pre_execute/00_CHECK.php',
     ],
     'relationships' => [
         [

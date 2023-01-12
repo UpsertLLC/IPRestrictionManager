@@ -22,5 +22,4 @@ $popupMeta = ['moduleMain' => $module_name,
     'whereClauses' => ['name' => $_module_name . '.name',
     ],
     'searchInputs'=> [$_module_name. '_number', 'name', 'priority','status'],
-
 ];

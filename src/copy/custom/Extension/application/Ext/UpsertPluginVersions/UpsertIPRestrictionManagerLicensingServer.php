@@ -15,7 +15,7 @@
 
 $upsertPluginVersions['UpsertIPRestrictionManager']['id'] = 'fd5da2d0-01eb-11ed-af0b-06687781ce3b';
 $upsertPluginVersions['UpsertIPRestrictionManager']['name'] = 'Upsert® IP Restriction Manager For SugarCRM';
-$upsertPluginVersions['UpsertIPRestrictionManager']['version'] = '3.0.1';
+$upsertPluginVersions['UpsertIPRestrictionManager']['version'] = '3.0.2';
 $upsertPluginVersions['UpsertIPRestrictionManager']['license_version'] = '';
 $upsertPluginVersions['UpsertIPRestrictionManager']['support_url'] = 'https://github.com/UpsertLLC/IPRestrictionManager/issues';
 $upsertPluginVersions['UpsertIPRestrictionManager']['project_url'] = 'https://github.com/UpsertLLC/IPRestrictionManager';
