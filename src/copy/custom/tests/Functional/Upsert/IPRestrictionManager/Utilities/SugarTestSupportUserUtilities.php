@@ -24,7 +24,7 @@ class SugarTestSupportUserUtilities extends SugarTestSupportUtilities
         parent::__construct();
     }
 
-    public function create($attributes = [], $defaults= [])
+    public function create(array $attributes = [], array $defaults = [])
     {
         if (isset($_REQUEST['action'])) {
             unset($_REQUEST['action']);

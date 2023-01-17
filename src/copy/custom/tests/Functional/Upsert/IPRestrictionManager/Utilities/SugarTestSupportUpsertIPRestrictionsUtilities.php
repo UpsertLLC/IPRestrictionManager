@@ -24,7 +24,7 @@ class SugarTestSupportUpsertIPRestrictionsUtilities extends SugarTestSupportUtil
         parent::__construct();
     }
 
-    public function create($attributes = [], $defaults= [])
+    public function create(array $attributes = [], array $defaults = [])
     {
         //set defaults
         $coreDefaults = [
