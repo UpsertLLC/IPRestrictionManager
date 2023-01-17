@@ -33,7 +33,7 @@ abstract class SugarTestSupportUtilities
      *
      * @return null|SugarBean
      */
-    public function create($attributes = [], $defaults = [])
+    public function create(array $attributes = [], array $defaults = [])
     {
         $fields = [];
 
