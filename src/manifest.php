@@ -10,7 +10,8 @@ $manifest = [
     ],
     'acceptable_sugar_versions' => [
         'regex_matches' => [
-            '12\\.*\\.*.*',
+            "12\.*\.*.*",
+            "13\.*\.*.*",
         ],
     ],
     'author' => 'Upsert, LLC',
