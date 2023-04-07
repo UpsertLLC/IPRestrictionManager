@@ -17,7 +17,10 @@ $dictionary['upsert_IPRestrictionLogs'] = [
     'table' => 'upsert_iprestrictionlogs',
     'audited' => true,
     'activity_enabled' => false,
-    'acls' => ['SugarACLAdminOnly' => true],
+    'acls' => [
+        'SugarACLAdminOnly' => true,
+        'SugarACLStatic' => false,
+    ],
     'duplicate_merge' => false,
     'duplicate_check' => [
         'enabled' => false,

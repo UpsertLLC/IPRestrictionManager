@@ -51,19 +51,6 @@ class upsert_IPRestrictions extends Basic
     public $disable_row_level_security = true;
     
     /**
-     * @inheritDoc
-     *
-     * @param string $interface
-     */
-    public function bean_implements($interface)
-    {
-        switch ($interface) {
-            case 'ACL': return true;
-        }
-        return false;
-    }
-
-    /**
      * Determines if we are running from within a unit test
      *
      * @return boolean

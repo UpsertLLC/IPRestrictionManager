@@ -19,3 +19,10 @@ $extensions['upsert_plugin_versions'] = [
     'file' => 'upsert_plugin_versions.ext.php',
     'module' => 'application',
 ];
+
+$extensions['upsert_plugin_licenses'] = [
+    'section' => 'upsert_plugin_licenses',
+    'extdir' => 'UpsertPluginLicenses',
+    'file' => 'upsert_plugin_licenses.ext.php',
+    'module' => 'application',
+];

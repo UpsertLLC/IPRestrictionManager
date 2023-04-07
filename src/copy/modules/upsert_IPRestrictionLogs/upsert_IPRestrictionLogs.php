@@ -13,7 +13,6 @@
  * Licensed by SugarCRM, Inc under the Apache 2.0 license.
  */
 
-
 class upsert_IPRestrictionLogs extends Basic
 {
     public $new_schema = true;
@@ -47,15 +46,4 @@ class upsert_IPRestrictionLogs extends Basic
     public $locked_fields_link;
     public $sync_key;
     public $disable_row_level_security = true;
-    
-    /**
-     * @inheritDoc
-     */
-    public function bean_implements($interface)
-    {
-        switch ($interface) {
-            case 'ACL': return true;
-        }
-        return false;
-    }
 }
