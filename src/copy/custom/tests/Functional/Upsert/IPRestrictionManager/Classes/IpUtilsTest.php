@@ -39,6 +39,7 @@ class IpUtilsTest extends TestCase
     {
         parent::setUp();
 
+        \SugarTestHelper::init();
         \SugarTestHelper::setUp('beanList');
         \SugarTestHelper::setUp('beanFiles');
         \SugarTestHelper::setUp('current_user');

@@ -1,0 +1,34 @@
+{{!--
+/*
+ * IP Restriction Manager is an open source module developed by SugarCRM, Inc
+ * Copyright (C) SugarCRM, Inc.
+ *
+ * "Upsert® IP Restriction Manager" is an extension to "IP Restriction Manager" developed by Upsert, LLC.
+ * Copyright (C) Upsert, LLC.
+ * 
+ * Project: https://github.com/upsertllc/IPRestrictionManager
+ * Support: https://github.com/UpsertLLC/IPRestrictionManager/issues
+ * 
+ * Licensed by SugarCRM, Inc under the Apache 2.0 license.
+ */
+--}}
+{{#each value}}
+<div class="control-group" data-name="upsert_list_collection_{{../name}}">
+    <div class="controls span12 controls-three btn-fit row" style="margin-left: 0px;">
+
+        <div class="span11">
+            <input type="text" name="value_{{../name}}" class="inherit-width span12" value="{{this}}"
+                data-id="{{../id}}" data-index="{{@index}}">
+        </div>
+
+        <div class="span1">
+            <button type="button" class="btn second" name="remove" data-action="remove-field" data-index="{{@index}}"
+                rel="tooltip" title="{{str "LBL_ITEM_REMOVE" ../module}}"><i class="fa fa-minus"></i></button>
+            {{#if @last}}<button type="button" class="btn first" name="add" data-action="add-field"
+                data-index="{{@index}}" rel="tooltip" title="{{str "LBL_ITEM_ADD" ../../module}}"><i
+                    class="fa fa-plus"></i></button>{{/if}}
+        </div>
+    </div>
+</div>
+{{/each}}
+{{#unless hideHelp}}{{#if def.help}}<p class="help-block">{{str def.help module}}</p>{{/if}}{{/unless}}

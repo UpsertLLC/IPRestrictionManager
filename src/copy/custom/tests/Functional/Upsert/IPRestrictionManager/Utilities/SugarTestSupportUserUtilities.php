@@ -30,7 +30,7 @@ class SugarTestSupportUserUtilities extends SugarTestSupportUtilities
             unset($_REQUEST['action']);
         }
 
-        $time = mt_rand();
+        $time = random_int(0, mt_getrandmax());
         $userId = 'SugarUser';
 
         //set defaults

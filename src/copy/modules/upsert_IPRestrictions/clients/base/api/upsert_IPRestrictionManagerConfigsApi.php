@@ -82,11 +82,6 @@ class upsert_IPRestrictionManagerConfigsApi extends SugarApi
             throw new \SugarApiExceptionNotAuthorized();
         }
 
-        $administration = new \Administration();
-        $administration->retrieveSettings('upsert_IPRestrictionManager', true);
-
-        $settings = $administration->settings;
-
-        return $settings;
+        return Settings::fetchConfigs();
     }
 }

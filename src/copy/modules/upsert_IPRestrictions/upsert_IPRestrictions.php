@@ -189,7 +189,8 @@ class upsert_IPRestrictions extends Basic
 
         //always allow local server access
         if ($allowLocal && ($ip == '::1' || $ip == '127.0.0.1')) {
-            $log->name = isset($_REQUEST['__sugar_url']) ? $_REQUEST['__sugar_url'] : 'CLI';
+            $log = \BeanFactory::newBean('upsert_IPRestrictionLogs');
+            $log->name = $_REQUEST['__sugar_url'] ?? 'CLI';
             $log->status = 'Failure';
             $log->assigned_user_id = $userId;
             $log->description = 'Ignoring restrictions on localhost.';
@@ -198,22 +199,46 @@ class upsert_IPRestrictions extends Basic
             return $isValidated;
         }
 
-        $restrictions = static::getUserRestrictions($userId, $platform);
+        $hasByPass = false;
 
-        //if we find restrictions, we need to see if any ranges are matched
-        if (count($restrictions) > 0) {
-            $isValidated = false;
+        $allowSupportAccess = Settings::fetchConfig('allow_support_access');
 
-            foreach ($restrictions as $restriction) {
-                if ( ! IpUtils::validateRange($ip, $restriction['ip_range'])) {
-                    $logMessage .= "- {$restriction['name']} ({$restriction['id']}) :: Validating ip '{$ip}' against range '{$restriction['ip_range']}' failed.\n";
-                } else {
-                    $logMessage .= "- {$restriction['name']} ({$restriction['id']}) :: Validating ip '{$ip}' against range '{$restriction['ip_range']}' succeeded.\n";
-                    $isValidated = true;
+        if ($allowSupportAccess == 'Enabled') {
+            $user = \BeanFactory::getBean('Users', $userId, ['disable_row_level_security' => true]);
+            if (\User::isSupportUser($user)) {
+                $hasByPass = true;
+            }
+        }
+
+        if ( ! $hasByPass) {
+            $globalIPs = Settings::fetchConfig('global_ips');
+            if (is_array($globalIPs) && ! empty($globalIPs)) {
+                foreach ($globalIPs as $globalIP) {
+                    if (IpUtils::validateRange($ip, $globalIP)) {
+                        $logMessage .= "- Validating ip '{$ip}' against global ip range '{$globalIP}' succeeded.\n";
+                        $hasByPass = true;
+                    }
                 }
             }
-        } else {
-            $logMessage = "- User does not have any ip restrictions\n";
+        }
+
+        if ( ! $hasByPass) {
+            $restrictions = static::getUserRestrictions($userId, $platform);
+
+            //if we find restrictions, we need to see if any ranges are matched
+            if (count($restrictions) > 0) {
+                $isValidated = false;
+                foreach ($restrictions as $restriction) {
+                    if ( ! IpUtils::validateRange($ip, $restriction['ip_range'])) {
+                        $logMessage .= "- {$restriction['name']} ({$restriction['id']}) :: Validating ip '{$ip}' against range '{$restriction['ip_range']}' failed.\n";
+                    } else {
+                        $logMessage .= "- {$restriction['name']} ({$restriction['id']}) :: Validating ip '{$ip}' against range '{$restriction['ip_range']}' succeeded.\n";
+                        $isValidated = true;
+                    }
+                }
+            } else {
+                $logMessage = "- User does not have any ip restrictions\n";
+            }
         }
 
         $isLogged = false;
@@ -228,7 +253,7 @@ class upsert_IPRestrictions extends Basic
 
         if ($isLogged) {
             $log = \BeanFactory::newBean('upsert_IPRestrictionLogs');
-            $log->name = isset($_REQUEST['__sugar_url']) ? $_REQUEST['__sugar_url'] : '';
+            $log->name = $_REQUEST['__sugar_url'] ?? '';
             $log->status = ($isValidated) ? 'Success' : 'Failure';
             $log->assigned_user_id = $userId;
             $log->description = $logMessage;
@@ -272,12 +297,12 @@ class upsert_IPRestrictions extends Basic
                 if ( ! empty($userId)) {
                     //clear users cache when authenticating
                     sugar_cache_clear(static::getCacheConfigKey($userId, $GLOBALS['service']->platform));
-                    static::validateAPIResponse($args, $GLOBALS['service'], $userId, $ip, false);
+                    static::validateAPIResponse($args, $GLOBALS['service'], $userId, $ip);
                 }
             }
         } elseif ($event == 'after_routing') {
             if ( ! empty($userId)) {
-                static::validateAPI($args['api'], $userId, $ip, false);
+                static::validateAPI($args['api'], $userId, $ip);
             }
         }
     }

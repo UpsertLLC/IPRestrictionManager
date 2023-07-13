@@ -43,9 +43,9 @@ class Settings
         if ($refetch) {
             $viewdefs = static::getConfigFile();
     
-            $fieldNames = [];
+            $fields = [];
             foreach ($viewdefs['upsert_IPRestrictions']['base']['view']['upsert-config']['panels'][1]['fields'] as $field) {
-                array_push($fieldNames, $field['name']);
+                array_push($fields, $field);
             }
     
             $administration = new \Administration();
@@ -55,13 +55,13 @@ class Settings
                 unset($settings['upsert_IPRestrictionManager']);
             }
     
-            foreach ($fieldNames as $fieldName) {
-                if ( ! isset($settings[$fieldName])) {
-                    $fieldDefaultValue = static::getFieldDefaultValue($fieldName);
-                    $settings[$fieldName] = $fieldDefaultValue;
+            foreach ($fields as $field) {
+                if ( ! isset($settings[$field['name']])) {
+                    $fieldDefaultValue = static::getFieldDefaultValue($field);
+                    $settings[$field['name']] = $fieldDefaultValue;
                 }
             }
-    
+
             sugar_cache_put($cacheKey, $settings, 0);
         }
     
@@ -86,18 +86,22 @@ class Settings
      * Returns the default value for the field
      *
      * @param string $fieldName
+     * @param mixed  $def
      *
      * @return string
      */
-    public static function getFieldDefaultValue($fieldName)
+    public static function getFieldDefaultValue($def)
     {
-        $bean = \BeanFactory::getDefinition('upsert_IPRestrictions');
+        $default = $def['default'] ?? null;
 
-        if (isset($bean->field_defs[$fieldName]['default'])) {
-            return $bean->field_defs[$fieldName]['default'];
+        if (is_string($default)) {
+            $storedResult = json_decode($default);
+            if (json_last_error() === JSON_ERROR_NONE) {
+                $default = $storedResult;
+            }
         }
 
-        return null;
+        return $default;
     }
 
     /**
@@ -110,15 +114,7 @@ class Settings
     public static function fetchConfig($fieldName)
     {
         $configs = static::fetchConfigs();
-        
-        if (isset($configs[$fieldName])) {
-            return $configs[$fieldName];
-        }
 
-        if (isset($configs['upsert_IPRestrictionManager_'.$fieldName])) {
-            return $configs['upsert_IPRestrictionManager_'.$fieldName];
-        }
-
-        return null;
+        return $configs[$fieldName] ?? $configs['upsert_IPRestrictionManager_'.$fieldName] ?? null;
     }
 }

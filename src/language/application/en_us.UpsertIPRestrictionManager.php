@@ -30,6 +30,9 @@ $app_list_strings['upsert_iprestrictionmanager_log_status_list']['Disabled'] = '
 $app_list_strings['upsert_iprestrictionmanager_cache_status_list']['Enabled'] = 'Enabled';
 $app_list_strings['upsert_iprestrictionmanager_cache_status_list']['Disabled'] = 'Disabled';
 
+$app_list_strings['upsert_iprestrictionmanager_allow_support_access_list']['Enabled'] = 'Enabled';
+$app_list_strings['upsert_iprestrictionmanager_allow_support_access_list']['Disabled'] = 'Disabled';
+
 $app_list_strings['upsert_iprestrictionmanager_allow_local_access_status_list']['Enabled'] = 'Enabled';
 $app_list_strings['upsert_iprestrictionmanager_allow_local_access_status_list']['Disabled'] = 'Disabled';
 

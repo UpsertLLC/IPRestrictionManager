@@ -38,6 +38,7 @@ class upsert_IPRestrictionsTest extends TestCase
     {
         parent::setUp();
 
+        \SugarTestHelper::init();
         \SugarTestHelper::setUp('beanList');
         \SugarTestHelper::setUp('beanFiles');
         \SugarTestHelper::setUp('current_user');
@@ -57,6 +58,10 @@ class upsert_IPRestrictionsTest extends TestCase
         $this->userUtils->deleteAll();
         $this->roleUtils->deleteAll();
         $this->teamUtils->deleteAll();
+
+        \SugarTestUserUtilities::removeAllCreatedAnonymousUsers();
+        \SugarTestHelper::tearDown();
+
         parent::tearDown();
     }
 
@@ -165,6 +170,48 @@ class upsert_IPRestrictionsTest extends TestCase
         $this->assertEquals(6, count($restrictions));
     }
 
+    public function testValidateSupportUser()
+    {
+        $ipRestriction1 = $this->ipRestrictionManagerUtils->create(
+            [
+                'name' => 'IP1',
+                'ip_range' => '1.2.3.1-1.2.3.5',
+            ]
+        );
+
+        $ipRestriction2 = $this->ipRestrictionManagerUtils->create(
+            [
+                'name' => 'IP2',
+                'ip_range' => '1.2.4.1-1.2.4.5',
+                'platforms' => '^mobile^',
+            ]
+        );
+
+        //create support user
+        $user = $this->userUtils->create([
+            'user_name' => \User::SUPPORT_USER_NAME,
+        ]);
+
+        $user->load_relationship('upsert_iprestrictions_users');
+
+        $user->upsert_iprestrictions_users->add([
+            $ipRestriction1,
+            $ipRestriction2,
+        ]);
+
+        $user->save(false);
+
+        //verify all tests pass
+        $this->assertTrue(\upsert_IPRestrictions::validateUser($user->id, 'mobile', '1.2.4.1'));
+        $this->assertTrue(\upsert_IPRestrictions::validateUser($user->id, 'mobile', '1.2.4.0'));
+
+        $this->assertTrue(\upsert_IPRestrictions::validateUser($user->id, 'mobile', '1.2.3.1'));
+        $this->assertTrue(\upsert_IPRestrictions::validateUser($user->id, 'mobile', '1.2.3.0'));
+
+        $this->assertTrue(\upsert_IPRestrictions::validateUser($user->id, 'base', '1.2.3.1'));
+        $this->assertTrue(\upsert_IPRestrictions::validateUser($user->id, 'base', '1.2.3.0'));
+    }
+
 
     public function testValidateUser()
     {
@@ -201,6 +248,10 @@ class upsert_IPRestrictionsTest extends TestCase
 
         $this->assertTrue(\upsert_IPRestrictions::validateUser($user->id, 'base', '1.2.3.1'));
         $this->assertFalse(\upsert_IPRestrictions::validateUser($user->id, 'base', '1.2.3.0'));
+
+        //validate global sugar ips
+        $this->assertTrue(\upsert_IPRestrictions::validateUser($user->id, 'base', '54.153.90.191'));
+        $this->assertFalse(\upsert_IPRestrictions::validateUser($user->id, 'base', '54.153.90.190'));
     }
 
     public function testValidateAPI()

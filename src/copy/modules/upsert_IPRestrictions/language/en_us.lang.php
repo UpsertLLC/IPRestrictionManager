@@ -76,4 +76,8 @@ $mod_strings = [
     'LBL_UPSERT_IPRESTRICTIONMANAGER_CACHE_RESTRICTIONS_HELP' => 'Whether to cache each users ip restrictions. The recommended value is "Enabled".',
     'LBL_UPSERT_IPRESTRICTIONMANAGER_ALLOW_LOCAL_ACCESS' => 'Allow Local Access',
     'LBL_UPSERT_IPRESTRICTIONMANAGER_ALLOW_LOCAL_ACCESS_HELP' => 'Whether to allow users with localhost access.',
+    'LBL_UPSERT_IPRESTRICTIONMANAGER_ALLOW_SUPPORT_ACCESS' => 'Allow SugarCRM Support Access',
+    'LBL_UPSERT_IPRESTRICTIONMANAGER_ALLOW_SUPPORT_ACCESS_HELP' => 'Determines whether the SugarCRM Support users are exluded from IP restrictions.',
+    'LBL_UPSERT_IPRESTRICTIONMANAGER_GLOBAL_IPS' => 'Globally Allowed IPs',
+    'LBL_UPSERT_IPRESTRICTIONMANAGER_GLOBAL_IPS_HELP' => 'List of IPs that all users are allowed to login from. By default, allows SugarCloud IPs access: 54.153.90.191/32, 54.153.90.96/32.',
 ];

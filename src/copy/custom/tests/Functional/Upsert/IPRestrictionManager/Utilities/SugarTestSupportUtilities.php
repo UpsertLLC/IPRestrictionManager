@@ -53,7 +53,7 @@ abstract class SugarTestSupportUtilities
             $fields[$field] = $value;
         }
 
-        $time = mt_rand();
+        $time = random_int(0, mt_getrandmax());
 
         $bean = \BeanFactory::newBean($this->_beanName);
         $bean->name = 'Sugar' . $this->_beanName . " {$time}";

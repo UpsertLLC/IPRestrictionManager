@@ -83,7 +83,7 @@ class IpUtils
 
         //handle ranges
         if (Str::hasString('-', $range)) {
-            list($lower, $upper) = explode('-', $range, 2);
+            [$lower, $upper] = explode('-', $range, 2);
             $lowerConverted = (float)sprintf('%u', ip2long($lower));
             $upperConverted = (float)sprintf('%u', ip2long($upper));
             $ipConverted = (float)sprintf('%u', ip2long($ip));
@@ -92,7 +92,7 @@ class IpUtils
 
         //handle ip-netmask
         if (Str::hasString('/', $range)) {
-            list($range, $netmask) = explode('/', $range, 2);
+            [$range, $netmask] = explode('/', $range, 2);
             if (Str::hasString('.', $netmask)) {
                 $netmaskConverted = ip2long($netmask);
                 return ((ip2long($ip) & $netmaskConverted) == (ip2long($range) & $netmaskConverted));

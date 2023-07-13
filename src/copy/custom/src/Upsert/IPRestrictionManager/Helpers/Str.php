@@ -34,7 +34,7 @@ class Str
 
         $found = false;
         foreach ($needles as $needle) {
-            $position = stripos($haystack, $needle);
+            $position = stripos($haystack, (string) $needle);
 
             if ($position !== false) {
                 $found = true;

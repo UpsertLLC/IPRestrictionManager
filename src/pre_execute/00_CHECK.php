@@ -19,7 +19,7 @@ if ( ! defined('sugarEntry') || ! sugarEntry) {
 
 $version = $GLOBALS['sugar_version'];
 
-$GLOBALS['log']->info('Upsert® :: Precheck');
+$GLOBALS['log']->info('Upsert® IP Restriction Manager :: Precheck');
 
 $manifest = [];
 include($this->base_dir . '/manifest.php');

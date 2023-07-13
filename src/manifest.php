@@ -19,11 +19,11 @@ $manifest = [
     'is_uninstallable' => true,
     'key' => 'UpsertIPRestrictionManager',
     'name' => 'Upsert® IP Restriction Manager For SugarCRM',
-    'published_date' => '2023-04-07',
+    'published_date' => '2023-07-13',
     'remove_tables' => 'prompt',
     'type' => 'module',
     'uninstall_before_upgrade' => false,
-    'version' => '3.0.3',
+    'version' => '3.1.0',
 ];
 
 $installdefs = [
@@ -416,6 +416,18 @@ $installdefs = [
             'to' => 'modules/upsert_IPRestrictions/clients/base/api/upsert_IPRestrictionsApi.php',
         ],
         [
+            'from' => '<basepath>/copy/modules/upsert_IPRestrictions/clients/base/fields/upsert-list-collection/detail.hbs',
+            'to' => 'modules/upsert_IPRestrictions/clients/base/fields/upsert-list-collection/detail.hbs',
+        ],
+        [
+            'from' => '<basepath>/copy/modules/upsert_IPRestrictions/clients/base/fields/upsert-list-collection/edit.hbs',
+            'to' => 'modules/upsert_IPRestrictions/clients/base/fields/upsert-list-collection/edit.hbs',
+        ],
+        [
+            'from' => '<basepath>/copy/modules/upsert_IPRestrictions/clients/base/fields/upsert-list-collection/upsert-list-collection.js',
+            'to' => 'modules/upsert_IPRestrictions/clients/base/fields/upsert-list-collection/upsert-list-collection.js',
+        ],
+        [
             'from' => '<basepath>/copy/modules/upsert_IPRestrictions/clients/base/filters/basic/basic.php',
             'to' => 'modules/upsert_IPRestrictions/clients/base/filters/basic/basic.php',
         ],
@@ -751,6 +763,10 @@ $installdefs = [
     ],
     'pre_execute' => [
         '<basepath>/pre_execute/00_CHECK.php',
+        '<basepath>/pre_execute/00_FlagIinstall.php',
+    ],
+    'pre_uninstall' => [
+        '<basepath>/pre_uninstall/00_FlagUninstall.php',
     ],
     'relationships' => [
         [

@@ -17,20 +17,25 @@ if ( ! defined('sugarEntry') || ! sugarEntry) {
     die('Not A Valid Entry Point');
 }
 
-if (class_exists('\\upsert_IPRestrictions') && \BeanFactory::newBean('upsert_IPRestrictions') != null) {
-    $hook_array['after_routing'][] = [
-        1,
-        'Check For IP Restrictions',
-        '',
-        '\\upsert_IPRestrictions',
-        'checkForIPRestriction',
-    ];
+if (
+    ! isset($GLOBALS['upsert_installing_plugin']) &&
+    ! isset($GLOBALS['upsert_uninstalling_plugin'])
+) {
+    if (class_exists('\\upsert_IPRestrictions') && \BeanFactory::newBean('upsert_IPRestrictions') != null) {
+        $hook_array['after_routing'][] = [
+            1,
+            'Check For IP Restrictions',
+            '',
+            '\\upsert_IPRestrictions',
+            'checkForIPRestriction',
+        ];
 
-    $hook_array['before_respond'][] = [
-        1,
-        'Check For IP Restrictions',
-        '',
-        '\\upsert_IPRestrictions',
-        'checkForIPRestriction',
-    ];
+        $hook_array['before_respond'][] = [
+            1,
+            'Check For IP Restrictions',
+            '',
+            '\\upsert_IPRestrictions',
+            'checkForIPRestriction',
+        ];
+    }
 }
