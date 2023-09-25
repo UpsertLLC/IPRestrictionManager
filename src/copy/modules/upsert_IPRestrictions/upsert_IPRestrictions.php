@@ -143,7 +143,7 @@ class upsert_IPRestrictions extends Basic
     
             $union->distinct(true);
     
-            // \Sugarcrm\Sugarcrm\custom\Upsert\Upsertifiable\Libraries\Sugar\Classes\Helpers\Logger::log($union);
+            // \Sugarcrm\Sugarcrm\custom\Upsert\IPRestrictionManager\Libraries\Sugar\Classes\Helpers\Logger::log($union);
     
             $restrictions = $union->execute();
 

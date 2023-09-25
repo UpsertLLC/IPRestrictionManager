@@ -80,4 +80,7 @@ $mod_strings = [
     'LBL_UPSERT_IPRESTRICTIONMANAGER_ALLOW_SUPPORT_ACCESS_HELP' => 'Determines whether the SugarCRM Support users are exluded from IP restrictions.',
     'LBL_UPSERT_IPRESTRICTIONMANAGER_GLOBAL_IPS' => 'Globally Allowed IPs',
     'LBL_UPSERT_IPRESTRICTIONMANAGER_GLOBAL_IPS_HELP' => 'List of IPs that all users are allowed to login from. By default, allows SugarCloud IPs access: 54.153.90.191/32, 54.153.90.96/32.',
+    'LBL_ITEM_REMOVE' => 'Remove',
+    'LBL_ITEM_ADD' => 'Add',
+    'LBL_DELETE_CONFIRMATION_LANGUAGE' => 'Remove this entry?',
 ];

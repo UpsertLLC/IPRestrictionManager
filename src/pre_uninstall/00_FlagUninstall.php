@@ -19,5 +19,5 @@ if ( ! defined('sugarEntry') || ! sugarEntry) {
 
 $GLOBALS['log']->info('Upsert® IP Restriction Manager :: Set flag for uninstall');
 
-$GLOBALS['upsert_iprestrictionmanager_installing'] = true;
+$GLOBALS['upsert_iprestrictionmanager_uninstalling'] = true;
 $GLOBALS['upsert_uninstalling_plugin'] = true;
