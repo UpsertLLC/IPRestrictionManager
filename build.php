@@ -15,17 +15,17 @@
  */
 
 
-$longopts = array("name:", "tests:");
+$longopts = ['name:', 'tests:'];
 
-if (!isset($options)) {
+if ( ! isset($options)) {
     $options = getopt('', $longopts);
 }
 
-if (!isset($options['tests'])) {
+if ( ! isset($options['tests'])) {
     $options['tests'] = false;
 }
 
-if (isset($options['name']) && !empty($options['name'])) {
+if (isset($options['name']) && ! empty($options['name'])) {
     $zipFile = "builds/{$options['name']}.zip";
 } else {
     $id = time();
@@ -57,10 +57,10 @@ foreach ($files as $name => $file) {
     
         echo " [*] $fileRelative \n";
         $zip->addFile($fileReal, $fileRelative);
-        $installdefs['copy'][] = array(
+        $installdefs['copy'][] = [
             'from' => '<basepath>/' . $fileRelative,
             'to' => preg_replace('/^src\/(.*)/', '$1', $fileRelative),
-        );
+        ];
     }
 }
 
