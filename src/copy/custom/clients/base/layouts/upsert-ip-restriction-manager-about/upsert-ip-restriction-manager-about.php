@@ -24,7 +24,7 @@ $viewdefs['base']['layout']['upsert-ip-restriction-manager-about'] = [
                         'layout' => [
                             'type' => 'base',
                             'name' => 'main-pane',
-                            'css_class' => 'main-pane span8',
+                            'css_class' => 'main-pane overflow-scroll span8',
                             'components' => [
                                 [
                                     'view' => 'upsert-ip-restriction-manager-about',

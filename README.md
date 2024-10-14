@@ -27,7 +27,7 @@ IP Restriction Manager is an open source module developed by SugarCRM, Inc
 
 Copyright (C) SugarCRM, Inc.
 
-"Upsert® IP Restriction Manager" is an extension to "IP Restriction Manager" developed by Upsert, LLC.
+"Upsert® IP Restriction Manager" is a reimagining of SugarCRM's ["IP Restriction Manager"](https://github.com/sugarcrm/IpRestrictionManager).
 
 Copyright (C) Upsert, LLC.
 

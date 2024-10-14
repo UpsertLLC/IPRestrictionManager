@@ -79,8 +79,29 @@ if (isset($this->installdefs['copy']) && ! empty($this->installdefs['copy'])) {
     }
 }
 
+$additionalFileChecks = [
+    'custom/Extension/application/Ext/Language/temp.php',
+];
+
+foreach ($additionalFileChecks as $additionalFileCheck) {
+    if (\SugarAutoloader::fileExists($additionalFileCheck)) {
+        $conflicts[] = "{$additionalFileCheck} - This file is known to cause install issues and should be renamed or removed";
+    }
+}
+
+$additionalFolderChecks = [
+    'custom/Extension/application/Ext/Language/temp/',
+];
+
+foreach ($additionalFolderChecks as $additionalFolderCheck) {
+    if (sugar_is_dir($additionalFolderCheck)) {
+        $conflicts[] = "{$additionalFolderCheck} - This folder is known to cause install issues and should be renamed or removed";
+    }
+}
+
 if ($conflicts) {
-    $message = "The following existing files conflict with files from this package: <p/><ol>\n";
+    $contactUs = 'Please contact us at <a href="mailto:support@upsertconsulting.com">support@upsertconsulting.com</a> for assistance.';
+    $message = "The following files conflict with this package: <p/><ol>\n";
     if (version_compare($version, '11.3.0', '>=')) {
         $emailMessage = $message;
         foreach ($conflicts as $key => $conflict) {
@@ -89,7 +110,7 @@ if ($conflicts) {
             $emailMessage .= "<li>{$conflict}\n</li>";
         }
         $emailMessage .= "</ol><p/>\n";
-        $emailMessage .= 'Please contact us at <a href="mailto:support@upsertconsulting.com">support@upsertconsulting.com</a> for assistance.';
+        $emailMessage .= $contactUs;
     } else {
         foreach ($conflicts as $conflict) {
             $message .= "<li>{$conflict}\n</li>";
@@ -97,7 +118,7 @@ if ($conflicts) {
     }
     
     $message .= "</ol><p/>\n";
-    $message .= 'Please contact us at <a href="mailto:support@upsertconsulting.com">support@upsertconsulting.com</a> for assistance.';
+    $message .= $contactUs;
 
     $plainMessage = strip_tags(br2nl($message));
 

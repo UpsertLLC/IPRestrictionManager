@@ -12,6 +12,7 @@ $manifest = [
         'regex_matches' => [
             '12\\.*\\.*.*',
             '13\\.*\\.*.*',
+            '14\\.*\\.*.*',
         ],
     ],
     'author' => 'Upsert, LLC',
@@ -19,11 +20,11 @@ $manifest = [
     'is_uninstallable' => true,
     'key' => 'UpsertIPRestrictionManager',
     'name' => 'Upsert® IP Restriction Manager for SugarCRM',
-    'published_date' => '2023-09-25 16:49:30',
+    'published_date' => '2024-10-14 01:55:33',
     'remove_tables' => 'prompt',
     'type' => 'module',
     'uninstall_before_upgrade' => false,
-    'version' => '3.1.1',
+    'version' => '3.1.2',
 ];
 
 $installdefs = [
@@ -731,14 +732,18 @@ $installdefs = [
         ],
     ],
     'post_execute' => [
+        '<basepath>/post_execute/00_IPRestrictionManagerBaseUpdateJavascript.php',
         '<basepath>/post_execute/00_QRAR.php',
     ],
+    'post_uninstall' => [
+        '<basepath>/post_uninstall/00_IPRestrictionManagerBaseUpdateJavascript.php',
+    ],
     'pre_execute' => [
-        '<basepath>/pre_execute/00_CHECK.php',
-        '<basepath>/pre_execute/00_FlagIinstall.php',
+        '<basepath>/pre_execute/00_IPRestrictionManagerBasePrecheck.php',
+        '<basepath>/pre_execute/01_IPRestrictionManagerBaseFlagInstall.php',
     ],
     'pre_uninstall' => [
-        '<basepath>/pre_uninstall/00_FlagUninstall.php',
+        '<basepath>/pre_uninstall/00_IPRestrictionManagerBaseFlagUninstall.php',
     ],
     'relationships' => [
         [
