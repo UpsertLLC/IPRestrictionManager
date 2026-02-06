@@ -43,7 +43,7 @@
         'icon' => 'sicon-info-lg',
         'LBL_UPSERT_IPRESTRICTIONMANAGER_INFORMATION_LINK',
         'LBL_UPSERT_IPRESTRICTIONMANAGER_INFORMATION_LINK_DESCRIPTION',
-        'javascript:void(parent.SUGAR.App.router.navigate("Home/layout/upsert-ip-restriction-manager-about", {trigger: true}));',
+        '#Home/layout/upsert-ip-restriction-manager-about',
     ];
 
     $admin_group_header[] = [
